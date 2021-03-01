@@ -1,0 +1,12 @@
+C:\Users\lonet\source\repos\Eshop\Eshop.Data\bin\Debug\netcoreapp3.1\Eshop.Data.deps.json
+C:\Users\lonet\source\repos\Eshop\Eshop.Data\bin\Debug\netcoreapp3.1\Eshop.Data.dll
+C:\Users\lonet\source\repos\Eshop\Eshop.Data\bin\Debug\netcoreapp3.1\Eshop.Data.pdb
+C:\Users\lonet\source\repos\Eshop\Eshop.Data\obj\Debug\netcoreapp3.1\Eshop.Data.csprojAssemblyReference.cache
+C:\Users\lonet\source\repos\Eshop\Eshop.Data\obj\Debug\netcoreapp3.1\Eshop.Data.AssemblyInfoInputs.cache
+C:\Users\lonet\source\repos\Eshop\Eshop.Data\obj\Debug\netcoreapp3.1\Eshop.Data.AssemblyInfo.cs
+C:\Users\lonet\source\repos\Eshop\Eshop.Data\obj\Debug\netcoreapp3.1\Eshop.Data.csproj.CoreCompileInputs.cache
+C:\Users\lonet\source\repos\Eshop\Eshop.Data\obj\Debug\netcoreapp3.1\Eshop.Data.dll
+C:\Users\lonet\source\repos\Eshop\Eshop.Data\obj\Debug\netcoreapp3.1\Eshop.Data.pdb
+C:\Users\lonet\source\repos\Eshop\Eshop.Data\bin\Debug\netcoreapp3.1\Eshop.Data.runtimeconfig.json
+C:\Users\lonet\source\repos\Eshop\Eshop.Data\bin\Debug\netcoreapp3.1\Eshop.Data.runtimeconfig.dev.json
+C:\Users\lonet\source\repos\Eshop\Eshop.Data\obj\Debug\netcoreapp3.1\Eshop.Data.genruntimeconfig.cache
