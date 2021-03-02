@@ -1,18 +1,18 @@
-using Eshop.Data;
-using Eshop.Data.Models;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
+using Eshop.Data;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Eshop.Data.Models;
 
 namespace Eshop
 {
@@ -30,13 +30,14 @@ namespace Eshop
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("DefaultConnection")).UseLazyLoadingProxies());
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 8;
                 options.SignIn.RequireConfirmedEmail = false;
-            });
+            })
+                .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
         }
 
@@ -65,12 +66,8 @@ namespace Eshop
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
-            });
-
-            app.UseEndpoints(endpoints =>
-            {
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
+                //endpoints.MapRazorPages();
             });
         }
     }

@@ -7,6 +7,5 @@ namespace Eshop.Data.Models
 {
     public class ApplicationUser : IdentityUser
     {
-
     }
 }

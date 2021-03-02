@@ -3,49 +3,106 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Eshop</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <title>@ViewData["Title"] Eshop</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Eshop</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    @*<partial name="_LoginPartial" />*@
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                @*Úprava textu odkazu na domovskou stránku (dle vaší URL)*@
+                <a asp-controller="Home" asp-action="Index" class="navbar-brand">shop.itnetwork.cz</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                @*Formulář pro hledání produktů (použitý kontroler "Product" s metodou "Index" doplníme později )*@
+                <form asp-controller="Product" asp-action="Index" method="post" class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" name="searchPhrase" class="form-control" id="header-search" placeholder="Název zboží..." value="">
+                    </div>
+                    <button type="submit" class="btn btn-default">Hledat</button>
+                </form>
+                @*Zbylé položky menu*@
+                <ul class="nav navbar-nav">
+                    <li><a href="/Account/Administration">Účet</a></li>
+                    <li><a href="#">Články</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                </ul>
+                @*Tlačítko pro zobrazení obsahu nákupního košíku*@
+                <div class="navbar-form navbar-right">
+                    <a href="#" class="btn btn-default" style="margin-right:10px;">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Košík (0 Kč)
+                    </a>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </div>
+    </div>
+    <div class="container body-content">
+        @*Panel pro zobrazení aktuálních informací*@
+        <div class="alert alert-info">
+            Zobrazení aktuálních informací pro uživatele
+        </div>
+        <div class="row">
+            @*Část pro přehled kategorií produktů*@
+            <div class="col-md-3">
+                <div class="well" style="padding: 8px 0;">
+                    <nav class="menu-tree" style="margin-left: 5px;">
+                        <h3>Kategorie</h3>
+                    </nav>
+                </div>
+            </div>
+            @*Část pro vlastní obsah*@
+            <div class="col-md-9">
+                <article>
+                    @RenderBody()
+                </article>
+            </div>
+        </div>
+        <hr />
+        @*Zápatí*@
+        <footer>
+            <p>&copy; @DateTime.Now.Year - <a href="http://www.MedielSoft.cz">Martin Erdt</a> a <a href="https://www.linkedin.com/in/pejsa">Jof</a> pro ITNetwork</p>
+        </footer>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - Eshop - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
+    @*odkazy na Javascripty*@
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
 
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>
