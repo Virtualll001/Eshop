@@ -1,18 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.EntityFrameworkCore;
 using Eshop.Data;
+using Eshop.Data.Models;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Eshop.Data.Models;
 
 namespace Eshop
 {
@@ -42,7 +36,7 @@ namespace Eshop
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
         {
             if (env.IsDevelopment())
             {
@@ -55,7 +49,7 @@ namespace Eshop
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+                      
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -63,6 +57,11 @@ namespace Eshop
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            //Pøiøazení uživatele k roli admin
+            //roleManager.CreateAsync(new IdentityRole("Admin")).Wait();
+            //ApplicationUser user = userManager.FindByEmailAsync("david@david.cz").Result;
+            //userManager.AddToRoleAsync(user, "Admin").Wait();
 
             app.UseEndpoints(endpoints =>
             {
