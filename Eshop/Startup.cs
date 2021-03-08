@@ -60,7 +60,7 @@ namespace Eshop
 
             //Pøiøazení uživatele k roli admin
             //roleManager.CreateAsync(new IdentityRole("Admin")).Wait();
-            //ApplicationUser user = userManager.FindByEmailAsync("david@david.cz").Result;
+            //ApplicationUser user = userManager.FindByEmailAsync("vera@seznam.cz").Result;
             //userManager.AddToRoleAsync(user, "Admin").Wait();
 
             app.UseEndpoints(endpoints =>
