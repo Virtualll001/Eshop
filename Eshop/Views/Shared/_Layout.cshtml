@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Eshop.Extensions
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -54,7 +56,7 @@
     <div class="container body-content">
         @*Panel pro zobrazení aktuálních informací*@
         <div class="alert alert-info">
-            Zobrazení aktuálních informací pro uživatele
+            @Html.RenderFlashMessages()
         </div>
         <div class="row">
             @*Část pro přehled kategorií produktů*@

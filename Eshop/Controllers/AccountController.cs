@@ -1,4 +1,6 @@
-﻿using Eshop.Data.Models;
+﻿using Eshop.Classes;
+using Eshop.Data.Models;
+using Eshop.Extensions;
 using Eshop.Models.AccountViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -104,7 +106,9 @@ namespace Eshop.Controllers
             // pokud byly odeslány neplatné údaje, vrátíme uživatele k přihlašovacímu formuláři
             if (result.Succeeded)
             {
-                RedirectToLocal(returnUrl);
+                this.AddFlashMessage(new FlashMessage("Přihlášení proběhlo úspěšně", FlashMessageType.Success));
+                return RedirectToAction("Administration");
+                //RedirectToLocal(returnUrl);
             }
 
             ModelState.AddModelError(string.Empty, "Neplatné přihlašovací údaje");
@@ -112,7 +116,8 @@ namespace Eshop.Controllers
         }
 
         public async Task<IActionResult> LogOut()
-        {
+        {       
+            //6. lekce kapitola "Další akce"
             await signInManager.SignOutAsync();
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
