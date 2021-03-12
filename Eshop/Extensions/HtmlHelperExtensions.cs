@@ -28,7 +28,6 @@ namespace Eshop.Extensions
 
                 html.AppendHtml(container);
             }
-
             return html;
         }
     }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Eshop.Extensions
 {
+    [ExceptionsToMessageFilter]
     public static class ControllerExtensions
     {
         public static void AddFlashMessage(this Controller controller, FlashMessage message)
@@ -24,5 +25,17 @@ namespace Eshop.Extensions
         {
             controller.AddFlashMessage(new FlashMessage(message, messageType));
         }
+
+        // metoda, kterou budeme volat ve filtru
+        public static void AddDebugMessage(this Controller controller, Exception ex)
+        {
+            string message = ex.Message;
+
+            if (ex.GetBaseException().Message != message)
+                message += Environment.NewLine + ex.GetBaseException().Message;
+
+            AddFlashMessage(controller, new FlashMessage(message, FlashMessageType.Danger));
+        }
+
     }
 }

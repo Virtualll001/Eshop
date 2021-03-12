@@ -3,10 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Eshop.Data.Interfaces
+namespace Eshop.Business.Interfaces
 {
-    public interface ICategoryRepository : IRepository<Category>
+    public interface ICategoryManager
     {
         List<Category> GetCategoriesWithoutChildCategories();
+
+        void UpdateProductCategories(int productId, int[] categories);
     }
 }

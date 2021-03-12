@@ -13,7 +13,6 @@ namespace Eshop.Data.Models
         public virtual Category ParentCategory { get; set; }
         public virtual ICollection<Category> ChildCategories { get; set; }
         public virtual ICollection<CategoryProduct> CategoryProducts { get; set; }
-
             
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key()]
@@ -38,5 +37,11 @@ namespace Eshop.Data.Models
         public bool Hidden { get; set; }
 
         public int? ParentCategoryId { get; set; }
+
+        public Category()
+        {
+            CategoryProducts = new List<CategoryProduct>();
+            ChildCategories = new List<Category>();
+        }
     }
 }

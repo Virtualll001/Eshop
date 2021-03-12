@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 namespace Eshop.Controllers
 {
     [Authorize]
+    [ExceptionsToMessageFilter] // hlídat přidání u všech controllerů!
     public class AccountController : Controller
     {
-
         public readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
 
@@ -44,7 +44,6 @@ namespace Eshop.Controllers
         public IActionResult Register(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-
             return View();
         }
 
@@ -66,18 +65,15 @@ namespace Eshop.Controllers
                     if (result.Succeeded)
                     {
                         await signInManager.SignInAsync(user, isPersistent: false);
-
+                        this.AddFlashMessage(new FlashMessage("Odhlášení proběhlo úspěšně", FlashMessageType.Success)); //TODO: zkontrolovat Register success hláška
                         return string.IsNullOrEmpty(returnUrl)
                             ? RedirectToAction("Index", "Home")
                             : RedirectToLocal(returnUrl);
                     }
-
                     AddErrors(result);
                 }
-
                 AddErrors(IdentityResult.Failed(new IdentityError() { Description = $"Email {model.Email} je již zaregistrován" }));
-            }
-
+            }            
             return View(model);
         }
 
@@ -116,12 +112,13 @@ namespace Eshop.Controllers
         }
 
         public async Task<IActionResult> LogOut()
-        {       
-            //6. lekce kapitola "Další akce"
+        {
+            /*throw new Exception("AccountController: akce LogOut: výjimka!");  - testování výjimky */
             await signInManager.SignOutAsync();
+            this.AddFlashMessage(new FlashMessage("Odhlášení proběhlo úspěšně", FlashMessageType.Success)); //TODO: zkontrolovat LogOut success hláška
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
-
+       
         [HttpGet]
         public async Task<IActionResult> ChangePassword()
         {
@@ -151,7 +148,7 @@ namespace Eshop.Controllers
             }
 
             await signInManager.SignInAsync(user, isPersistent: false);
-
+            this.AddFlashMessage(new FlashMessage("Odhlášení proběhlo úspěšně", FlashMessageType.Success)); //TODO: zkontrolovat ChangePassword() success hláška
             return RedirectToAction("Administration");
         }
         public IActionResult Administration()

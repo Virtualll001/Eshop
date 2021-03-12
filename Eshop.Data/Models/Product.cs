@@ -64,6 +64,7 @@ namespace Eshop.Data.Models
         {
             ImagesCount = 0;
             Hidden = false;
+            CategoryProducts = new List<CategoryProduct>();
         }
     }
 }
