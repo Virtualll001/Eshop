@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uTQ2LJmtEt0QrTO5fcX/6gjxv1PR3XIb9jy5tZenUdHJsELNWKZFOB+mGPKL+rATA7qAaH5jKUUpRvYz/P+PLw==",
+  "dgSpecHash": "MY17czBAt+O7uuiChiEbnabw8CO3xuX6Z3PuYat+gmzYB9Bow/E2GUswR0hFUJtXnj+np1ZBRiNbaPw5XhDh7Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\lonet\\source\\repos\\Eshop\\Eshop.Business\\Eshop.Business.csproj",
   "expectedPackageFiles": [
@@ -139,6 +139,7 @@
     "C:\\Users\\lonet\\.nuget\\packages\\system.diagnostics.tools\\4.3.0\\system.diagnostics.tools.4.3.0.nupkg.sha512",
     "C:\\Users\\lonet\\.nuget\\packages\\system.diagnostics.tracesource\\4.3.0\\system.diagnostics.tracesource.4.3.0.nupkg.sha512",
     "C:\\Users\\lonet\\.nuget\\packages\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",
+    "C:\\Users\\lonet\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
     "C:\\Users\\lonet\\.nuget\\packages\\system.dynamic.runtime\\4.3.0\\system.dynamic.runtime.4.3.0.nupkg.sha512",
     "C:\\Users\\lonet\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\lonet\\.nuget\\packages\\system.globalization.calendars\\4.3.0\\system.globalization.calendars.4.3.0.nupkg.sha512",

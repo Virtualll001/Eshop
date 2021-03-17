@@ -12,5 +12,7 @@ namespace Eshop.Business.Interfaces
         Product FindProductByUrl(string url);
 
         void SaveProduct(Product product);
+
+        //Hlavičku metod SaveProductImages();RemoveProductImage(); nezapomenout přidat [9. Managery].
     }
 }
