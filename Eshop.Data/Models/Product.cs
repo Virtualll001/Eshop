@@ -8,6 +8,7 @@ namespace Eshop.Data.Models
 {
     public class Product
     {
+        public virtual ICollection<Category> ChildCategories { get; set; }
         public virtual ICollection<CategoryProduct> CategoryProducts { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key()]
@@ -65,6 +66,7 @@ namespace Eshop.Data.Models
             ImagesCount = 0;
             Hidden = false;
             CategoryProducts = new List<CategoryProduct>();
+            ChildCategories = new List<Category>();
         }
     }
 }

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop", "Eshop\Eshop.csproj", "{31E289D4-AA03-4365-A292-DA8FC881D771}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eshop", "Eshop\Eshop.csproj", "{31E289D4-AA03-4365-A292-DA8FC881D771}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.Business", "Eshop.Business\Eshop.Business.csproj", "{9533CE6A-E128-4ED2-BF2C-F72C3F278C55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eshop.Business", "Eshop.Business\Eshop.Business.csproj", "{9533CE6A-E128-4ED2-BF2C-F72C3F278C55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.Data", "Eshop.Data\Eshop.Data.csproj", "{9CB78765-0919-4105-81CD-DCC8E0F51511}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eshop.Data", "Eshop.Data\Eshop.Data.csproj", "{9CB78765-0919-4105-81CD-DCC8E0F51511}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

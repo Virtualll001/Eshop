@@ -39,3 +39,4 @@ C:\Users\lonet\source\repos\Eshop\Eshop.Data\obj\Debug\netstandard2.0\Eshop.Data
 C:\Users\lonet\source\repos\Eshop\Eshop.Data\obj\Debug\netstandard2.0\Eshop.Data.dll
 C:\Users\lonet\source\repos\Eshop\Eshop.Data\obj\Debug\netstandard2.0\Eshop.Data.pdb
 C:\Users\lonet\source\repos\Eshop\Eshop.Data\obj\Debug\netstandard2.0\Eshop.Data.genruntimeconfig.cache
+C:\Users\lonet\source\repos\Eshop\Eshop.Data\obj\Debug\netstandard2.0\Eshop.Data.csprojAssemblyReference.cache

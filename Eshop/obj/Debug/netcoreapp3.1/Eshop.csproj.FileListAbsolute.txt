@@ -482,3 +482,4 @@ C:\Users\lonet\source\repos\Eshop\Eshop\obj\Debug\netcoreapp3.1\Razor\Views\Acco
 C:\Users\lonet\source\repos\Eshop\Eshop\obj\Debug\netcoreapp3.1\Razor\Views\Account\ChangePassword.cshtml.g.cs
 C:\Users\lonet\source\repos\Eshop\Eshop\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\lonet\source\repos\Eshop\Eshop\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\lonet\source\repos\Eshop\Eshop\obj\Debug\netcoreapp3.1\Razor\Views\Product\ManageProduct.cshtml.g.cs

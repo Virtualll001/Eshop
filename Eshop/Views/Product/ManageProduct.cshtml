@@ -1,0 +1,119 @@
+﻿@model Eshop.Models.ProductViewModels.ManageProductViewModel
+
+@{
+    ViewData["Title"] = Model.FormCaption;
+}
+
+<h2>@Model.FormCaption</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ManageProduct">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Product.ProductId" />
+            <div class="form-group">
+                <label asp-for="Product.Code" class="control-label"></label>
+                <input asp-for="Product.Code" class="form-control" />
+                <span asp-validation-for="Product.Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Url" class="control-label"></label>
+                <input asp-for="Product.Url" class="form-control" />
+                <span asp-validation-for="Product.Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Title" class="control-label"></label>
+                <input asp-for="Product.Title" class="form-control" />
+                <span asp-validation-for="Product.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.ShortDescription" class="control-label"></label>
+                <textarea asp-for="Product.ShortDescription" class="form-control"></textarea>
+                <span asp-validation-for="Product.ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Description" class="control-label"></label>
+                <textarea asp-for="Product.Description" class="form-control tinymce"></textarea>
+                <span asp-validation-for="Product.Description" class="text-danger"></span>
+            </div>
+
+            <div id="product-images-administration">
+                @*link to style ManageProduct.css*@
+                @{
+                    for (int i = 0; i < Model.Product.ImagesCount; i++)
+                    {
+                        <div>
+                            <img src="/images/products/@(Model.Product.ProductId)/@(Model.Product.ProductId)_@(i).jpeg" alt="@Model.Product.Title - @(i+1)" />
+                            <a href="#" data-image-index="@i">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    }
+                }
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UploadedImages" class="control-label"></label>
+                <input asp-for="UploadedImages" class="form-control" multiple />
+                <span asp-validation-for="UploadedImages" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PostedCategories" class="control-label col-md-2" style="padding-left:0px;"></label>
+                <div class="col-md-10">
+                    <div style="padding-left:20px;">
+                        @{
+                            for (int i = 0; i < Model.AvailableCategories.Count; i++)
+                            {
+                                <p>
+                                    <input asp-for="PostedCategories[i]" type="checkbox" />
+                                    @Model.AvailableCategories[i].Title
+                                </p>
+                            }
+                        }
+                    </div>
+                    <span asp-validation-for="PostedCategories" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Product.Price" class="control-label"></label>
+                <input asp-for="Product.Price" class="form-control" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.OldPrice" class="control-label"></label>
+                <input asp-for="Product.OldPrice" class="form-control" />
+                <span asp-validation-for="Product.OldPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Stock" class="control-label"></label>
+                <input asp-for="Product.Stock" class="form-control" />
+                <span asp-validation-for="Product.Stock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Product.ImagesCount" class="form-control" type="hidden" />
+                <span asp-validation-for="Product.ImagesCount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Product.Hidden" type="hidden" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Uložit" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="@Url.Content("//cdn.tinymce.com/4/tinymce.min.js")"></script>
+    <script src="@Url.Content("~/js/initTinyMCE.js")"></script>
+}
